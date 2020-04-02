@@ -4,7 +4,10 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Princess+Sofia' rel='stylesheet' type='text/css'>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -12,11 +15,6 @@
   <script>
     $(document).ready(function() {
       var items = [
-        // ["Preferis ser AAAA o BBBB?", ["AAAA", "BBBB"]],
-        // ["Preferis ser AAAA o BBBB?", ["a", "b"]],
-        // ["Preferis ser AAAA o BBBB?", ["a", "b"]],
-        // ["Preferis ser AAAA o BBBB?", ["a", "b"]],
-        // ["Preferis ser AAAA o BBBB?", ["a", "b"]]
         ["Preferis visitar Aruba o Paris?", ["Aruba", "Paris"]],
         ["Preferis pasear a un perro o mirar una pelicula?", ["Pasear a un perro", "Mirar una pelicula"]],
         ["Preferis whisky o Fernet?", ["Whisky", "Fernet"]],
@@ -80,6 +78,15 @@
       color: white;
       text-align: center;
     }
+    .intro {
+      padding-top: 200px;
+      font-family: 'Princess Sofia', cursive;
+      font-size: 56px;
+      cursor: pointer;
+    }
+    .gm {
+      display: none;
+    }
     .carousel-inner,
     .result {
       padding: 100px 100px 20px 100px;
@@ -93,6 +100,9 @@
     }
     .submit {
       padding: 50px;
+      font-family: 'Princess Sofia', cursive;
+      cursor: pointer;
+      font-size: 50px;
     }
     .result {
 
@@ -100,7 +110,7 @@
     .resultCandidate img {
       height: 400px;
     }
-    .loading {
+    .loading-wrap div {
 
     }
   </style>
@@ -108,24 +118,27 @@
 <body>
   <div class='main'>
 
-    <div class='content'>
-      <div id="wai" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-        <!-- Indicators -->
-        <!-- <ul class="carousel-indicators"></ul> -->
-        <!-- The slideshow -->
-        <form id='waiform' action='#'>
-          <div class="carousel-inner"></div>
-        </form>
-        <!-- Next control -->
-        <a class="carousel-control-next" href="#wai" data-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </a>
-      </div>
-      <div class="slideCount"></div>
-      <div class='submit'>¿Que Di Stefano soy?</div>
-    </div>
+    <div class="intro">¿Que <br>Di Stefano <br>soy?</div>
 
-    <div class='result'></div>
+    <div class='gm'>
+      <div class='content'>
+        <div id="wai" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+          <!-- Indicators -->
+          <!-- <ul class="carousel-indicators"></ul> -->
+          <!-- The slideshow -->
+          <form id='waiform' action='#'>
+            <div class="carousel-inner"></div>
+          </form>
+          <!-- Next control -->
+          <a class="carousel-control-next" href="#wai" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+        <div class="slideCount"></div>
+        <div class='submit'>¿Que Di Stefano soy?</div>
+      </div>
+      <div class='result'></div>
+    </div>
 
   </div>
 </body>
@@ -133,6 +146,13 @@
 <footer>
   <script>
     $(document).ready(function(){
+
+      $(".intro").click(function(){
+        $(".intro").hide();
+        $(".gm").show();
+      });
+
+
       $assets =  {
         ve: 'veronica.jpg',
         an: 'andrea.jpg',
