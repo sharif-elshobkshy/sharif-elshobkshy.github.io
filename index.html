@@ -89,7 +89,7 @@
     }
     .carousel-inner,
     .result {
-      padding: 85px 20px 20px 20px;
+      padding: 65px 20px 20px 20px;
     }
     p.question::first-letter {
       text-transform: uppercase;
@@ -124,11 +124,15 @@
     .loading-wrap div {
 
     }
+    .reload {
+      text-decoration: none;
+      display: block;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
   <div class='main'>
-
     <div class="intro">¿Que <br>Di Stefano <br>soy?</div>
 
     <div class='gm'>
@@ -232,7 +236,7 @@
                $wnr = key;
              }
            });
-           $(".result").after("<div class='resultCandidate'><img src='" + $assets[$wnr] + "'></div>");
+           $(".result").after("<div class='resultCandidate'><img src='" + $assets[$wnr] + "'><div class='reload'><a href='/'>Empezar de nuevo</a></div></div>");
          }, 10000);
 
 
