@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var items = [
+        // ["Preferis ser AAAA o BBBB?", ["AAAA", "BBBB"]],
+        // ["Preferis ser AAAA o BBBB?", ["a", "b"]],
+        // ["Preferis ser AAAA o BBBB?", ["a", "b"]],
+        // ["Preferis ser AAAA o BBBB?", ["a", "b"]],
+        // ["Preferis ser AAAA o BBBB?", ["a", "b"]]
+        ["Preferis visitar Aruba o Paris?", ["Aruba", "Paris"]],
+        ["Preferis pasear a un perro o mirar una pelicula?", ["Pasear a un perro", "Mirar una pelicula"]],
+        ["Preferis whisky o Fernet?", ["Whisky", "Fernet"]],
+        ["Preferis ver el Rey Leon o Corazon Valiente?", ["Rey Leon", "Corazon Valiente"]],
+        ["Preferis un helado o churros?", ["Helado", "Churros"]],
+        ["Preferis el verano o invierno?", ["Verano", "Invierno"]],
+        ["Preferis hacer gimnasia o ir a tomar mate?", ["Hacer Gimnasia", "Tomar Mate"]],
+        ["Preferis Mar Del Plata o San Bernardo?", ["Mar Del Plata", "San Bernardo"]],
+        ["preferis participar en un maraton o clase de baile?", ["Maraton", "Clase Baile"]],
+        ["preferis una pareja de pelo rubio o castaño?", ["Rubio", "Castaño"]],
+        ["preferis lavar platos o secar platos?", ["Lavar Platos", "Secar Platos"]],
+        ["preferis inflar globos o poner los platos en la mesa?", ["Inflar Globos", "Poner Platos"]],
+        ["preferis un buen corte de pelo o buen bronceado?", ["Corte", "Bronceado"]],
+        ["preferis un buen celular o prenda de ropa?", ["Celular", "Prenda de Ropa"]],
+        ["preferis saber otro idioma o tocar un instrumento musical?", ["Otro Idioma", "Instrumento Musical"]],
+        ["preferis las comedias o dramas?", ["Comedias", "Dramas"]],
+        ["preferis peliculas medievales o sobre la segunda guerra mundial?", ["Medievales", "Segunda Guerra Mundial"]],
+        ["preferis ser piloto o medico?", ["Piloto", "Medico"]],
+        ["preferis volver a ser niño o millonario?", ["Ser Niño", "Ser Millonario"]],
+        ["preferis ser muy feo y millonario o muy lindo y pobre?", ["Feo y Millonario", "Lindo y Pobre"]],
+        ["preferis ver playas o montañas llenas de naturaleza?", ["Playas", "Montañas Con Naturaleza"]],
+        ["preferis ir a Grecia o Nueva York?", ["Grecia", "Nueva York"]],
+        ["preferis un licuado o un helado?", ["Licuado", "Helado"]],
+        ["preferis un elefante recien nacido o un leon recien nacido?", ["Elefante", "Leon"]],
+        ["Preferis volar o ser invisible?", ["Volar", "Invisible"]],
+      ];
+
+      $.each( items, function( key, value ) {
+        // Create question wrapper.
+        var id = "question-" + key;
+        var $class = '';
+        if (key == 0) {
+          $class = 'active';
+        }
+        if (items.length -1 == key) {
+          $class += 'last';
+        }
+        // if (items.length == key)
+        // Create carousel indicators.
+        //$( ".carousel-indicators" ).append("<li data-target='#wai' data-slide-to='" + key + "' class='" + $class + "'></li>");
+        // Create question wrapper.
+        $( ".carousel-inner" ).append("<div class='carousel-item item " + $class + "' id=" + id + "></div>");
+        // Append question.
+        $('#' + id).append("<p>" + items[key][0] + "</p>");
+        // Append answer.
+        $.each( value[1], function( a_key, a_answer ) {
+          $('#' + id).append("<label><input type='radio' id=" + key + " name=" + key + " value=" + a_key + ">" + a_answer + "</label><br>");
+        });
+        // Add Form Submit.
+        if (items.length -1 == key) {
+          //$('#' + id).append("<input class='form-submit' type='submit' value='Submit'>");
+        }
+      });
+    });
+  </script>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 22px;
+      background-color: black;
+      color: white;
+      text-align: center;
+    }
+    .carousel-inner,
+    .result {
+      padding: 100px 100px 20px 100px;
+    }
+    .carousel-item label input {
+      margin-right: 10px;
+    }
+    .carousel-control-next,
+    .submit {
+      display: none;
+    }
+    .submit {
+      padding: 50px;
+    }
+    .result {
+
+    }
+    .resultCandidate img {
+      height: 400px;
+    }
+    .loading {
+
+    }
+  </style>
+</head>
+<body>
+  <div class='main'>
+
+    <div class='content'>
+      <div id="wai" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+        <!-- Indicators -->
+        <!-- <ul class="carousel-indicators"></ul> -->
+        <!-- The slideshow -->
+        <form id='waiform' action='#'>
+          <div class="carousel-inner"></div>
+        </form>
+        <!-- Next control -->
+        <a class="carousel-control-next" href="#wai" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+      <div class="slideCount"></div>
+      <div class='submit'>¿Que Di Stefano soy?</div>
+    </div>
+
+    <div class='result'></div>
+
+  </div>
+</body>
+
+<footer>
+  <script>
+    $(document).ready(function(){
+      $assets =  {
+        ve: 'veronica.jpg',
+        an: 'andrea.jpg',
+        ma: 'mariela.jpg'
+      };
+      updateCounter();
+      $(".item input[type='radio']").click(function(){
+         //var value = $(this).attr('value');
+         $('.carousel-control-next-icon').trigger('click');
+      });
+      $(".item.last input[type='radio']").click(function(){
+         $(".submit").show();
+      });
+
+      $('#wai').on('slid', '', checkitem);
+      $('#wai').on('slid.bs.carousel', '', checkitem);
+      function checkitem() {
+          // var $this = $('#wai');
+          // if($('.carousel-inner .item:first').hasClass('active')) {
+          //     $this.children('.carousel-control-next').show();
+          // } else if($('.carousel-inner .item:last').hasClass('active')) {
+          //     $this.children('.carousel-control-next').hide();
+          // } else {
+          //     $this.children('.carousel-control').show();
+          // }
+          updateCounter();
+      }
+      // $("form").submit(function(){
+        //var $values = $('#waiform').serialize();
+      // });
+
+      var candidates = {
+          ve: [0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1],
+          an: [1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0],
+          ma: [1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0],
+      }
+      var $results = {
+          ve: 0,
+          an: 0,
+          ma: 0
+      }
+
+      $(".submit").click(function(){
+         //var value = $(this).attr('value');
+         var $values = $('#waiform').serializeArray();
+         $.each( $values, function( key, value ) {
+           $.each( candidates, function( candKey, candValue ) {
+             if (candidates[candKey][key] == value['value']) {
+               $results[candKey] = $results[candKey] + 1;
+             }
+           });
+         });
+         $(".content").hide();
+
+         // Add loader.
+         $(".result").after("<div class='loading-wrap'><img class='loading' src='Loading-Bar2.gif'><div>Simulando un proceso super cientifico</div></div>");
+         $(".loading-wrap").delay("9500").fadeOut();
+         // Replace loader contenet with results.
+         setTimeout(function() {
+           $(".result").append("<div class='getResult'>Te pareces a</div>");
+           var $max = 0;
+           var $wnr = 0;
+           $.each( $results, function( key, value ) {
+             if (value > $max) {
+               $max = value;
+               $wnr = key;
+             }
+           });
+           $(".result").after("<div class='resultCandidate'><img src='" + $assets[$wnr] + "'></div>");
+         }, 10000);
+
+
+      });
+
+      function updateCounter() {
+        var totalItems = $('.carousel-item').length;
+        var currentIndex = $('.carousel-item.active').index() + 1;
+        var down_index;
+        $('.slideCount').html(''+currentIndex+'/'+totalItems+'');
+        $(".next").click(function(){
+          currentIndex_active = $('.carousel-item.active').index() + 2;
+          if (totalItems >= currentIndex_active) {
+              down_index= $('.carousel-item.active').index() + 2;
+              $('.slideCount').html(''+currentIndex_active+'/'+totalItems+'');
+          }
+        });
+      }
+
+    });
+
+  </script>
+</footer>
+</html>

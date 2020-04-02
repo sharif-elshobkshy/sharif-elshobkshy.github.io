@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TEST</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+
+    $(document).ready(function() {
+      var items = [
+        ["Preferis ser AAAA o BBBB?", ["AAAA", "BBBB"]],
+        ["Preferis ser AAAA o BBBB?", ["AAAA", "BBBB"]],
+        ["Preferis ser AAAA o BBBB?", ["AAAA", "BBBB"]],
+        ["Preferis ser AAAA o BBBB?", ["AAAA", "BBBB"]],
+        ["Preferis ser AAAA o BBBB?", ["AAAA", "BBBB"]]
+      ];
+      $.each( items, function( key, value ) {
+        var id = "question-" + key;
+        // Create question wrapper.
+        $( ".questions" ).append("<div class=question' id= " + id + "></div>");
+        // Append question.
+        $('#' + id).append("<p>" + items[key][0] + "</p>");
+        // Go Through question answers.
+        $.each( value[1], function( a_key, a_answer ) {
+          // Append answer.
+          $('#' + id).append("<label><input type='radio' id=" + key + " name=" + key + ">" + a_answer + "</label><br>");
+        });
+      });
+
+      var candidates = [
+        ['ve', ['a', 'b', 'a', 'b', 'a', 'b', 'a', 'b', 'a']],
+        ['an', ['a', 'b', 'a', 'b', 'a', 'b', 'a', 'b', 'a']],
+        ['ma', ['a', 'b', 'a', 'b', 'a', 'b', 'a', 'b', 'a']],
+      ];
+
+    });
+
+  </script>
+</head>
+<body>
+
+  <div class="inner">
+    <form action="/action_page.php">
+      <div class="questions">
+
+      </div>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+</body>
+</html>
