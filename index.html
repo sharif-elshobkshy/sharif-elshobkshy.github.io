@@ -4,8 +4,9 @@
   <title>¿Que Di Stefano soy?</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="assets/favicon.jpg" rel="icon" type="image/x-icon">
   <meta property="og:description" content="Descubri que Di Stefano Sos">
-  <meta property="og:image" content="logo.png">
+  <meta property="og:image" content="assets/logo.png">
 
   <link href='//fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <link href='//fonts.googleapis.com/css?family=Princess+Sofia' rel='stylesheet' type='text/css'>
@@ -171,9 +172,9 @@
 
 
       $assets =  {
-        ve: 'veronica.jpg',
-        an: 'andrea.jpg',
-        ma: 'mariela.jpg'
+        ve: 'assets/veronica.jpg',
+        an: 'assets/andrea.jpg',
+        ma: 'assets/mariela.jpg'
       };
       updateCounter();
       $(".item input[type='radio']").click(function(){
@@ -225,7 +226,7 @@
          $(".content").hide();
 
          // Add loader.
-         $(".result").after("<div class='loading-wrap'><img class='loading' src='Loading-Bar2.gif'><div>Simulando un procesamiento super cientifico</div></div>");
+         $(".result").after("<div class='loading-wrap'><img class='loading' src='assets/Loading-Bar2.gif'><div>Simulando un procesamiento super cientifico</div></div>");
          $(".loading-wrap").delay("9500").fadeOut();
          // Replace loader contenet with results.
          setTimeout(function() {
