@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>¿Que Di Stefano soy?</title>
+  <title>¿Que Di Stefano Soy?</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="assets/favicon.jpg" rel="icon" type="image/x-icon">
@@ -55,9 +55,6 @@
         if (items.length -1 == key) {
           $class += 'last';
         }
-        // if (items.length == key)
-        // Create carousel indicators.
-        //$( ".carousel-indicators" ).append("<li data-target='#wai' data-slide-to='" + key + "' class='" + $class + "'></li>");
         // Create question wrapper.
         $( ".carousel-inner" ).append("<div class='carousel-item item " + $class + "' id=" + id + "></div>");
         // Append question.
@@ -66,10 +63,6 @@
         $.each( value[1], function( a_key, a_answer ) {
           $('#' + id).append("<label><input type='radio' id=" + key + " name=" + key + " value=" + a_key + ">" + a_answer + "</label><br>");
         });
-        // Add Form Submit.
-        if (items.length -1 == key) {
-          //$('#' + id).append("<input class='form-submit' type='submit' value='Submit'>");
-        }
       });
     });
   </script>
@@ -114,18 +107,12 @@
       cursor: pointer;
       font-size: 50px;
     }
-    .result {
-
-    }
     .getResult{
       font-family: 'Princess Sofia', cursive;
       font-size: 26px;
     }
     .resultCandidate img {
       height: 400px;
-    }
-    .loading-wrap div {
-
     }
     .reload {
       text-decoration: none;
@@ -141,8 +128,6 @@
     <div class='gm'>
       <div class='content'>
         <div id="wai" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false" data-touch="false">
-          <!-- Indicators -->
-          <!-- <ul class="carousel-indicators"></ul> -->
           <!-- The slideshow -->
           <form id='waiform' action='#'>
             <div class="carousel-inner"></div>
@@ -153,7 +138,7 @@
           </a>
         </div>
         <div class="slideCount"></div>
-        <div class='submit'>¿Que Di Stefano soy?</div>
+        <div class='submit'>¿Que Di Stefano Soy?</div>
       </div>
       <div class='result'></div>
     </div>
@@ -164,12 +149,10 @@
 <footer>
   <script>
     $(document).ready(function(){
-
       $(".intro").click(function(){
         $(".intro").hide();
         $(".gm").show();
       });
-
 
       $assets =  {
         ve: 'assets/veronica.jpg',
@@ -178,7 +161,6 @@
       };
       updateCounter();
       $(".item input[type='radio']").click(function(){
-         //var value = $(this).attr('value');
          $('.carousel-control-next-icon').trigger('click');
       });
       $(".item.last input[type='radio']").click(function(){
@@ -188,19 +170,8 @@
       $('#wai').on('slid', '', checkitem);
       $('#wai').on('slid.bs.carousel', '', checkitem);
       function checkitem() {
-          // var $this = $('#wai');
-          // if($('.carousel-inner .item:first').hasClass('active')) {
-          //     $this.children('.carousel-control-next').show();
-          // } else if($('.carousel-inner .item:last').hasClass('active')) {
-          //     $this.children('.carousel-control-next').hide();
-          // } else {
-          //     $this.children('.carousel-control').show();
-          // }
           updateCounter();
       }
-      // $("form").submit(function(){
-        //var $values = $('#waiform').serialize();
-      // });
 
       var candidates = {
           ve: [0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1],
@@ -214,7 +185,6 @@
       }
 
       $(".submit").click(function(){
-         //var value = $(this).attr('value');
          var $values = $('#waiform').serializeArray();
          $.each( $values, function( key, value ) {
            $.each( candidates, function( candKey, candValue ) {
@@ -260,7 +230,6 @@
       }
 
     });
-
   </script>
 </footer>
 </html>
